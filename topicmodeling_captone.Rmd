@@ -1,0 +1,59 @@
+---
+title: "capstone_topic_modeling"
+author: "Ethan Huang"
+date: "5/25/2022"
+output:
+  html_document:
+    df_print: paged
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library(readr)
+library(tidyverse)    # general utility & workflow functions
+library(tidytext)     # tidy implimentation of NLP methods
+library(topicmodels)  # for LDA topic modelling 
+library(tm)           # general text mining functions, making document term matrixes
+library(SnowballC)    # for stemming
+```
+
+## read file
+```{r}
+reviews <- read_csv("/Users/h1zhen/Downloads/support_cases_text_fact.csv")
+# reviews <- reviews$DESCRIPTION
+```
+
+
+
+```{r}
+# topic modeling
+# corpus <- Corpus(VectorSource(reviews))
+# corpus <- tm_map(corpus, content_transformer(tolower))
+# corpus <- tm_map(corpus, removeWords, stopwords('english'))
+# corpus <- tm_map(corpus, removePunctuation)
+ #corpus <- tm_map(corpus, removeNumbers)
+ #corpus <- tm_map(corpus, stripWhitespace)
+ #corpus <- tm_map(corpus, stemDocument, language = "en")
+
+# DTM <- DocumentTermMatrix(corpus, control = list(bounds = list(global = c(5, Inf))))
+ #sel_idx <- slam::row_sums(DTM) > 0
+ #DTM <- DTM[sel_idx, ]
+# topicModel <- LDA(DTM, 5, method="Gibbs", control=list(iter = 500, verbose = 25))
+# topic_cohort = terms(topicModel, 20)
+
+# output
+# write.csv(topic_cohort,"/Users/h1zhen/Documents/UW/Capstone/Topic_cohort.csv", row.names = FALSE)
+
+```
+
